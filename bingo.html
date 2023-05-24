@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>caribou coffee</title>
+    <style>
+       
+ *{
+    font-family: 'Times New Roman', Times, serif;
+}
+:root{
+    --main-color:#000000;
+    --border:.1rem solid rgba(9, 126, 91, 0.3);
+    background-image: url(t2.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+*{
+    font-family: 'Roboto', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+body{
+     background-image:url(t2.webp);
+     background-size: cover;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+    width: .8rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+    background: #000000;
+    border-radius: 5rem;
+}
+
+body{
+    background: var(--bg);
+}
+
+section{
+    padding:2rem 7%;
+}
+
+.heading{
+    text-align: center;
+    color:#010101;
+    text-transform: uppercase;
+    padding-bottom: 3.5rem;
+    font-size: 4rem;
+}
+
+.heading span{
+    color:var(--main-color);
+    text-transform: uppercase;
+}
+
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding:.9rem 3rem;
+    font-size: 1.7rem;
+    color:#18b4df;
+    background: var(--main-color);
+    cursor: pointer;
+}
+.header{
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:1.5rem 7%;
+    border-bottom: var(--border);
+    position: fixed;
+    top:0; left: 0; right: 0;
+    z-index: 1000;
+}
+
+.header .logo img{
+    height: 6rem;
+}
+
+.header .navbar a{
+    margin:0 1rem;
+    font-size: 1.6rem;
+    color:#000000;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.header .navbar a:hover{
+    color:var(--main-color);
+    border-bottom: .1rem solid var(--main-color);
+    padding-bottom: .5rem;
+}
+
+.header .icons div{
+    color:#000000;
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-left: 2rem;
+}
+
+.header .icons div:hover{
+    color:var(--main-color);
+}
+
+#menu-btn{
+    display: none;
+}
+
+.header .search-form{
+    position: absolute;
+    top:115%; right: 7%;
+    background: #000000;
+    width: 50rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: top;
+}
+
+.header .search-form.active{
+    transform: scaleY(1);
+}
+
+.header .search-form input{
+    height: 100%;
+    width: 100%;
+    font-size: 1.6rem;
+    color:var(--black);
+    padding:1rem;
+    text-transform: none;
+}
+
+.header .search-form label{
+    cursor: pointer;
+    font-size: 2.2rem;
+    margin-right: 1.5rem;
+    color:var(--black);
+}
+
+.header .search-form label:hover{
+    color:var(--main-color);
+}
+
+.header .cart-items-container{
+    position: absolute;
+    top:100%; right: -100%;
+    height: calc(100vh - 9.5rem);
+    width: 35rem;
+    background: #000000;
+    padding:0 1.5rem;
+}
+
+.header .cart-items-container.active{
+    right: 0;
+}
+
+.header .cart-items-container .cart-item{
+    position: relative;
+    margin:2rem 0;
+    display: flex;
+    align-items: center;
+    gap:1.5rem;
+}
+
+.header .cart-items-container .cart-item .fa-times{
+    position: absolute;
+    top:1rem; right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--black);
+}
+
+.header .cart-items-container .cart-item .fa-times:hover{
+    color:var(--main-color);
+}
+
+.header .cart-items-container .cart-item img{
+    height: 7rem;
+}
+
+.header .cart-items-container .cart-item .content h3{
+    font-size: 2rem;
+    color:var(--black);
+    padding-bottom: .5rem;
+}
+
+.header .cart-items-container .cart-item .content .price{
+    font-size: 1.5rem;
+    color:var(--main-color);
+}
+
+.header .cart-items-container .btn{
+    width: 100%;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+}
+.home .content{
+    max-width: 60rem;
+}
+
+.home .content h3{
+    font-size: 6rem;
+    text-transform: uppercase;
+    color:#18b4df;
+}
+
+.home .content p{
+    font-size: 2rem;
+    font-weight: lighter;
+    line-height: 1.8;
+    padding:1rem 0;
+    color:#18b4df;
+}
+
+.about .row{
+    display: flex;
+    align-items: center;
+    background:var(--black);
+    flex-wrap: wrap;
+}
+
+.about .row .image{
+    flex:1 1 45rem;
+}
+
+.about .row .image img{
+    width: 100%;
+}
+.about .row .content{
+    flex:1 1 45rem;
+    padding:2rem;
+}
+
+.about .row .content h3{
+    font-size: 3rem;
+    color:#000000;
+}
+
+.about .row .content p{
+    font-size: 1.6rem;
+    color:#000000;
+    padding:1rem 0;
+    line-height: 1.8;
+}
+
+.menu .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:1.5rem;
+}
+
+.menu .box-container .box{
+    padding:5rem;
+    text-align: center;
+    border:var(--border);    
+}
+
+.menu .box-container .box img{
+    height: 10rem;
+}
+
+.menu .box-container .box h3{
+    color: #000000;
+    font-size: 2rem;
+    padding:1rem 0;
+}
+
+.menu .box-container .box .price{
+    color: #000000;
+    font-size: 2.5rem;
+    padding:.5rem 0;
+}
+
+.menu .box-container .box .price span{
+    font-size: 1.5rem;
+    text-decoration: line-through;
+    font-weight: lighter;
+}
+.products .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:1.5rem;
+}
+
+.products .box-container .box{
+    text-align: center;
+    border:var(--border);
+    padding: 2rem;
+}
+
+.products .box-container .box .icons a{
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    border:var(--border);
+    color:#000000;
+    margin:.3rem;
+}
+
+.products .box-container .box .icons a:hover{
+    background:var(--main-color);
+}
+
+.products .box-container .box .image{
+    padding: 2.5rem 0;
+}
+
+.products .box-container .box .image img{
+    height: 25rem;
+}
+
+.products .box-container .box .content h3{
+    color:#000000;
+    font-size: 2.5rem;
+}
+
+.products .box-container .box .content .stars{
+    padding: 1.5rem;
+}
+
+.products .box-container .box .content .stars i{
+    font-size: 1.7rem;
+    color: var(--main-color);
+}
+
+.products .box-container .box .content .price{
+    color:#000000;
+    font-size: 2.5rem;
+}
+
+.products .box-container .box .content .price span{
+    text-decoration: line-through;
+    font-weight: lighter;
+    font-size: 1.5rem;
+}
+
+.review .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:1.5rem;
+}
+
+.review .box-container .box{
+    border:var(--border);
+    text-align: center;
+    padding:3rem 2rem;
+}
+
+.review .box-container .box p{
+    font-size: 1.5rem;
+    line-height: 2.5;
+    color:#000000;
+    padding:2rem 0;
+}
+
+.review .box-container .box .user{
+    height: 15rem;
+    width: 10rem;
+    object-fit: cover;
+}
+
+.review .box-container .box h3{
+    padding:1rem 0;
+    font-size: 2rem;
+    color:#000000;
+}
+
+.review .box-container .box .stars i{
+    font-size: 1.5rem;
+    color:var(--main-color);
+}
+
+.contact .row{
+    display: flex;
+    background:var(--black);
+    flex-wrap: wrap;
+    gap:1rem;
+}
+
+.contact .row .map{
+    flex:1 1 45rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.contact .row form{
+    flex:1 1 45rem;
+    padding:5rem 2rem;
+    text-align: center;
+}
+
+.contact .row form h3{
+    text-transform: uppercase;
+    font-size: 3.5rem;
+    color:#000000;
+}
+
+.contact .row form .inputBox{
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background:var(--bg);
+    border:var(--border);
+    font-family:'Times New Roman', Times, serif;
+
+}
+
+.contact .row form .inputBox span{
+    color:#000000;
+    font-size: 2rem;
+    padding-left: 2rem;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.contact .row form .inputBox input{
+    width: 100%;
+    padding:2rem;
+    font-size: 1.7rem;
+    color:#000000;
+    text-transform: none;
+    background:none;
+    font-family:'Times New Roman', Times, serif;
+
+}
+
+.blogs .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:1.5rem;
+}
+
+.blogs .box-container .box{
+    border:var(--border);    
+}
+
+.blogs .box-container .box .image{
+    height: 25rem;
+    overflow:hidden;
+    width: 100%;
+}
+
+.blogs .box-container .box .image img{
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.blogs .box-container .box:hover .image img{
+    transform: scale(1.2);
+}
+
+.blogs .box-container .box .content{
+    padding:2rem;
+}
+
+.blogs .box-container .box .content .title{
+    font-size: 2.5rem;
+    line-height: 1.5;
+    color:#000000;
+}
+
+.blogs .box-container .box .content .title:hover{
+    color:var(--main-color);
+}
+
+.blogs .box-container .box .content span{
+    color:var(--main-color);
+    display: block;
+    padding-top: 1rem;
+    font-size: 2rem;
+}
+
+.blogs .box-container .box .content p{
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color:#000000;
+    padding:1rem 0;
+}
+
+.footer{
+    background:var(--black);
+    text-align: center;
+}
+
+.footer .share{
+    padding:1rem 0;
+}
+
+.footer .share a{
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    color:#000000;
+    border:var(--border);
+    margin:.3rem;
+    border-radius: 50%;
+}
+
+.footer .share a:hover{
+    background-color: var(--main-color);
+}
+
+.footer .links{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding:2rem 0;
+    gap:1rem;
+}
+
+.footer .links a{
+    padding:.7rem 2rem;
+    color:#000000;
+    border:var(--border);
+    font-size: 2rem;
+}
+
+.footer .links a:hover{
+    background:var(--main-color);
+}
+
+.footer .credit{
+    font-size: 2rem;
+    color:#000000;
+    font-weight: lighter;
+    padding:1.5rem;
+}
+.footer .credit span{
+    color:var(--main-color);
+}
+@media (max-width:991px){
+    html{
+        font-size: 55%;
+    }
+    .header{
+        padding:1.5rem 2rem;
+    }
+    section{
+        padding:2rem;
+    }
+}
+@media (max-width:768px){
+    #menu-btn{
+        display: inline-block;
+    }
+    .header .navbar{
+        position: absolute;
+        top:100%; right: -100%;
+        background: #000000;
+        width: 30rem;
+        height: calc(100vh - 9.5rem);
+        font-size: larger;
+    }
+    .header .navbar.active{
+        right:0;
+        font-size: larger;
+
+    }
+    .header .navbar a{
+        color:var(--black);
+        display: block;
+        margin:1.5rem;
+        padding:.5rem;
+        font-size: 10rem;
+
+    }
+    .header .search-form{
+        width: 90%;
+        right: 2rem;
+    }
+    .home{
+        background-position: left;
+        justify-content: center;
+        text-align: center;
+    }
+    .home .content h3{
+        font-size: 4.5rem;
+    }
+    .home .content p{
+        font-size: 1.5rem;
+    }
+}
+@media (max-width:450px){
+    html{
+        font-size: 50%;
+    }
+}
+    </style>
+    </head>
+<body>
+<header class="header" style="background-color: #000000;">
+    <a href="#" class="logo">
+        <img src="t1.jfif" alt="">
+    </a>
+    <nav >
+        <a href="#home">home</a>
+        <a href="#about">about</a>
+        <a href="#menu">menu</a>
+        <a href="#products">products</a>
+        <a href="#review">review</a>
+        <a href="#contact">contact</a>
+    </nav>
+    
+
+<br><br><br><br><br><br><br><br>
+    <section class="home" id="home">
+    <div class="icons">
+    <div class="search-form">
+        <input type="search" id="search-box" placeholder="search here...">
+        <label for="search-box" class="fas fa-search"></label>
+    </div>
+    
+    
+    <div class="cart-items-container">
+        <div class="cart-item">
+            <span class="fas fa-times"></span>
+            <img src="t2.webp" alt="bingo">
+            <div class="content">
+                <h3>cart item 01</h3>
+                <div class="price">$15.99/-</div>
+            </div>
+        </div>
+        <div class="cart-item">
+            <span class="fas fa-times"></span>
+            <img src="t3.webp" alt="">
+            <div class="content">
+                <h3>cart item 02</h3>
+                <div class="price">$15.99/-</div>
+            </div>
+        </div>
+        <div class="cart-item">
+            <span class="fas fa-times"></span>
+            <img src="t4.jfif" alt="">
+            <div class="content">
+                <h3>cart item 03</h3>
+                <div class="price">$15.99/-</div>
+            </div>
+        </div>
+        <div class="cart-item">
+            <span class="fas fa-times"></span>
+            <img src="t5.jfif" alt="">
+            <div class="content">
+                <h3>cart item 04</h3>
+                <div class="price">$15.99/-</div>
+            </div>
+        </div>
+        <a href="#" class="btn">checkout now</a>
+    </div>
+    </div>
+</header>
+
+<section class="about" id="about">
+   
+    <h1 class="heading"> <span>about</span> us </h1>
+    <div class="row">
+        <div class="image">
+            <img src="t6.jfif" alt="">
+        </div>
+        
+        <div class="content">
+            <h3>what makes caribou special?</h3>
+            <p>We offer 100% clean label beverages using only real ingredients no artificial sweeteners and no artificial coloring. We source only cage-free eggs for our primary egg supply (eggs used in our All-Day Breakfast menu) in the United States.</p>
+            <a href="https://www.bloomberg.com/profile/company/CBOU:US#xj4y7vzkg" target="_blank" class="btn">learn more</a>
+        </div>
+    </div>
+</section>
+<section class="menu" id="menu">
+    <h1 class="heading"><span>STAR MENU</span> </h1>
+    <div class="box-container">
+        <div class="box">
+            <img src="t7.jfif" alt="">
+            <h3>Tomato Madness</h3>
+            <div class="price">Rs.350 <span>500</span></div>
+            <a href="" class="btn">add to cart</a>
+        </div>
+        <div class="box">
+            <img src="t8.jfif" alt="">
+            <h3>Mad ANgles</h3>
+            <div class="price">Rs.550 <span>700</span></div>
+            <a href="" class="btn">add to cart</a>
+        </div>
+        <div class="box">
+            <img src="t9.jfif" alt="">
+            <h3>Cream onion</h3>
+            <div class="price">Rs.1300 <span>1700</span></div>
+            <a href="" class="btn">add to cart</a>
+        </div>
+        <div class="box">
+            <img src="t10.jfif" alt="">
+            <h3>Hashtags</h3>
+            <div class="price">Rs.700 <span>900</span></div>
+            <a href="" class="btn">add to cart</a>
+        </div>
+        <div class="box">
+            <img src="t11.jfif"alt="">
+            <h3>Curiz</h3>
+            <div class="price">Rs.700 <span>1050</span></div>
+            <a href="" class="btn">add to cart</a>
+        </div>
+    </div>
+</section>
+<section class="products" id="products">
+    <h1 class="heading"> our <span>products</span> </h1>
+    <div class="box-container">
+        <div class="box">
+            <div class="icons">
+            </div>
+            <div class="image">
+                <img src="t12.jfif" alt="">
+            </div>
+            <div class="content">
+                <h3>Potato chips</h3>
+                <div class="stars">
+                </div>
+                <div class="price">Rs.4500 <span>6000</span></div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="icons">
+            </div>
+            <div class="image">
+                <img src="t13.jfif" alt="">
+            </div>
+            <div class="content">
+                <h3>chilli chips</h3>
+                <div class="stars">
+                </div>
+                <div class="price">Rs.5000 <span>6600</span></div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="icons">
+            </div>
+            <div class="image">
+                <img src="t14.jfif">
+            </div>
+            <div class="content">
+                <h3>Spicy Masala</h3>
+                <div class="stars">
+                </div>
+                <div class="price">Rs.2300 <span>4000</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="review" id="review">
+    <h1 class="heading"> customer's <span>review</span> </h1>
+    <div class="box-container">
+        <div class="box">
+            <p>Nice.</p>
+            <img src="t15.jpg"width="200px"height="200px">
+            <h3>NTR</h3>
+        </div>
+        <div class="box">
+            <p>Excellent.</p>
+            <img src="t16.jfif"width="200px"height="200px">
+            <h3>ROHIT SHARMA</h3>
+        </div>      
+        <div class="box">
+            <p>Perfect.</p>
+            <img src="t17.jpg"width="200px"height="200px">
+            <h3>RASHMIKA MANDANNA</h3>
+        </div>
+    </div>
+</section>
+<section class="contact" id="contact">
+    <h1 class="heading"> <span>contact</span> us </h1>
+    <div class="row">
+        <iframe src="https://www.google.com/maps/d/embed?mid=1WwKaF8xPKxFhx6MNcgETi6-gtuo&hl=en&ehbc=2E312F" width="440" height="380"></iframe>"
+        <form action="">
+            <h3>Contact</h3>
+            <div class="inputBox">
+                <input type="text" placeholder="NAME">
+            </div>
+            <div class="inputBox">
+                <input type="email" placeholder="EMAIL">
+            </div>
+            <div class="inputBox">
+                <input type="number" placeholder="NUMBER">
+            </div>
+            <input type="submit" value="contact now" class="btn">
+        </form>
+    </div>
+</section>
+<section class="footer">
+    <div class="share">
+        <a href="https://www.facebook.com/BingoSnacks/" target="_blank" class="fab fa-facebook-f"><img src="t20.webp"width="50x"height="50px></a>
+        <a href="https://twitter.com/BingoSnacks"target="_blank"  class="fab fa-twitter"><img src="t18.png"width="50px"height="50px"></a>
+        <a href="https://www.instagram.com/bingo_snacks/?hl=en" target="_blank"  class="fab fa-instagram"><img src="p1.jfif"width="50px"height="50px"></a>
+        <a href="https://www.linkedin.com/company/bingo?original_referer=https%3A%2F%2Fwww.google.com%2F"target="_blank"  class="fab fa-linkedin"><img src="t21.png"width="50px"height="50px"></a>
+    </div>
+</section>
+</body>
+</html>
